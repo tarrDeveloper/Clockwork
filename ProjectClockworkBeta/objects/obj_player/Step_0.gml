@@ -1,10 +1,51 @@
 // moving the player first to recieve direct influence from moving solids
-ActorMoveX(velX)
-ActorMoveY(velY)
+ActorMoveX(velX+velXOff)
+velXOff = 0
+
+ActorMoveY(velY+velYOff)
+velYOff = 0
+
+// getting current player states
+var _grounded = checkOverlap(x,y+.00001,obj_solid)
 
 // getting the input
 var _hInp = keyboard_check(vk_right) - keyboard_check(vk_left)
-var _vInp = keyboard_check(vk_down)  - keyboard_check(vk_up)
+var _jumpInp = keyboard_check_pressed(vk_space)
 
-velX += .1*_hInp
-velY += .1*_vInp
+// accelerating or deccelerating the player
+if _hInp != 0 {
+	velX += accelX*_hInp
+	if abs(velX) > accelXCap {
+		velX = sign(velX)*accelXCap
+	}
+} else {
+	if abs(velX) < deccelX {
+		velX = 0
+	} else {
+		velX -= deccelX*sign(velX)
+	}
+}
+
+// applying gravity to the player
+velY += grav
+if velY > gravYCap {
+	velY = gravYCap
+}
+
+// making the player jump
+if _jumpInp { // jump input buffer
+	jumpTimer = 5
+} else {
+	if jumpTimer > 0 jumpTimer--
+}
+
+if !_grounded { // jump grace
+	if jumpGrace > 0 jumpGrace--
+} else {
+	jumpGrace = 4
+}
+
+if jumpTimer > 0 and jumpGrace > 0 {
+	jumpTimer = 0
+	velY = -jumpMag
+}
