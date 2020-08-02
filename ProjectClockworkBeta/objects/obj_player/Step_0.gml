@@ -6,7 +6,7 @@ ActorMoveY(velY+velYOff)
 velYOff = 0
 
 // getting current player states
-var _grounded = checkOverlap(x,y+.00001,obj_solid)
+var _grounded = checkOverlap(x,y+.1,obj_solid)
 
 // applying the rider property of the player
 if !_grounded {

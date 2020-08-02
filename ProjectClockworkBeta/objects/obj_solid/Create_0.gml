@@ -6,3 +6,6 @@ bboxBottomLen = bbox_bottom - y
 
 velX = 0
 velY = 0
+
+xDraw = x
+yDraw = y

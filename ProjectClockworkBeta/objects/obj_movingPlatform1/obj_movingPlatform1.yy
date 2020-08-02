@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_solidPlatform",
-    "path": "sprites/spr_solidPlatform/spr_solidPlatform.yy",
+    "name": "spr_movingPlatform1",
+    "path": "sprites/spr_movingPlatform1/spr_movingPlatform1.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,8 +24,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":1,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_movingSolid","path":"objects/obj_movingSolid/obj_movingSolid.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_movingSolid","path":"objects/obj_movingSolid/obj_movingSolid.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":1,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_movingPlatform1","path":"objects/obj_movingPlatform1/obj_movingPlatform1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_movingPlatform1","path":"objects/obj_movingPlatform1/obj_movingPlatform1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +34,7 @@
     "path": "folders/1Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_movingSolid",
+  "name": "obj_movingPlatform1",
   "tags": [],
   "resourceType": "GMObject",
 }
