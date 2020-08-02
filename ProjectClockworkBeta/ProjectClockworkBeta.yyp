@@ -2,6 +2,8 @@
   "resources": [
     {"id":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},"order":0,},
     {"id":{"name":"tile_tileSet","path":"tilesets/tile_tileSet/tile_tileSet.yy",},"order":6,},
+    {"id":{"name":"spr_clock","path":"sprites/spr_clock/spr_clock.yy",},"order":7,},
+    {"id":{"name":"obj_clock","path":"objects/obj_clock/obj_clock.yy",},"order":5,},
     {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},"order":0,},
     {"id":{"name":"obj_movingSolid","path":"objects/obj_movingSolid/obj_movingSolid.yy",},"order":3,},
     {"id":{"name":"spr_playerIdle","path":"sprites/spr_playerIdle/spr_playerIdle.yy",},"order":1,},
@@ -12,7 +14,7 @@
     {"id":{"name":"spr_solidPlatform","path":"sprites/spr_solidPlatform/spr_solidPlatform.yy",},"order":4,},
     {"id":{"name":"spr_tileSet","path":"sprites/spr_tileSet/spr_tileSet.yy",},"order":5,},
     {"id":{"name":"obj_movingSolid2","path":"objects/obj_movingSolid2/obj_movingSolid2.yy",},"order":4,},
-    {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":0,},
+    {"id":{"name":"rm1","path":"rooms/rm1/rm1.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Windows","path":"options/windows/options_windows.yy",},
@@ -28,7 +30,7 @@
     "children": [],
   },
   "RoomOrder": [
-    {"name":"room0","path":"rooms/room0/room0.yy",},
+    {"name":"rm1","path":"rooms/rm1/rm1.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/0Sprites.yy","order":12,"resourceVersion":"1.0","name":"0Sprites","tags":[],"resourceType":"GMFolder",},

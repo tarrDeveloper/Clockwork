@@ -23,3 +23,9 @@ jumpTimer = 0
 jumpGrace = 0
 
 riding = noone
+
+oldGrounded = false
+
+// drawing
+xDraw = x
+yDraw = y

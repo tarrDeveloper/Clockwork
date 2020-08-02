@@ -44,20 +44,22 @@ if velY > gravYCap {
 
 // making the player jump
 if _jumpInp { // jump input buffer
-	jumpTimer = 5
+	jumpTimer = 10
 } else {
 	if jumpTimer > 0 jumpTimer--
 }
 
-if !_grounded { // jump grace
+if !(_grounded) or !(oldGrounded) { // jump grace
 	if jumpGrace > 0 jumpGrace--
 } else {
-	jumpGrace = 4
+	jumpGrace = 7
 }
 
+var _jumped = false
 if jumpTimer > 0 and jumpGrace > 0 {
 	jumpTimer = 0
 	velY = -jumpMag
+	_jumped = true
 }
 
 // animation
@@ -71,4 +73,21 @@ if _grounded {
 	sprite_index = spr_playerJump
 }
 
-if _hInp != 0 image_xscale = _hInp
+if _hInp != 0 image_xscale = abs(image_xscale)*_hInp
+
+// Squishing the player when they land
+if oldGrounded = noone and _grounded != noone {
+	image_xscale = sign(image_xscale)*1.4
+	image_yscale = .8
+}
+
+// Squishing the player when they jump
+if _jumped {
+	image_xscale = sign(image_xscale)*.8
+	image_yscale = 1.2
+}
+
+image_xscale = lerp(image_xscale,sign(image_xscale),.2)
+image_yscale = lerp(image_yscale,sign(image_yscale),.2)
+
+oldGrounded = _grounded

@@ -33,7 +33,7 @@
     "spriteId": {"name":"spr_playerIdle","path":"sprites/spr_playerIdle/spr_playerIdle.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 5.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
