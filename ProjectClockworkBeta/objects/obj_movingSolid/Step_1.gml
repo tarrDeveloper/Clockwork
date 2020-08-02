@@ -1,4 +1,4 @@
 t++
-velX = dsin(2*t)
+velX = round(dsin(2*t))
 
 SolidMove(velX,velY)

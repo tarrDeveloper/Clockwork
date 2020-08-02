@@ -46,6 +46,7 @@ function ActorMoveY(_amt) {
 		if _amt > 0 {
 			y += BboxTop(_col)-BboxBottom(self)
 			velY = _col.velY
+			riding = _col
 			return _col
 		} else {
 			y += BboxBottom(_col)-BboxTop(self)
@@ -60,6 +61,39 @@ function ActorMoveY(_amt) {
 // this function moves a solid and pushes actors
 function SolidMove(_amtX,_amtY) {
 	x += _amtX
+	var _velX = x-xprevious
+	var _player = checkOverlap(x,y,obj_player)
+	if _player != noone { // pushing the player
+		if _velX > 0 {
+			_player.velX = max(_player.velX,BboxRight(self)-BboxLeft(_player))
+			_player.velXOff = -(BboxRight(self)-BboxLeft(_player))
+			with _player ActorMoveX(-velXOff)
+		}
+		if _velX < 0
+		{
+			_player.velX = min(_player.velX,BboxLeft(self)-BboxRight(_player))
+			_player.velXOff = -(BboxLeft(self)-BboxRight(_player))
+			with _player ActorMoveX(-velXOff)
+		}
+	}
+	
+	y += _amtY
+	var _velY = y-yprevious
+	var _player = checkOverlap(x,y,obj_player)
+	if _player != noone { // pushing the player
+		if _velY < 0 {
+			_player.velY = min(_player.velY,BboxTop(self)-BboxBottom(_player))
+			_player.velYOff = -(BboxTop(self)-BboxBottom(_player))
+			with _player ActorMoveY(-velYOff)
+		}
+		if _velY > 0 {
+			_player.velY = max(_player.velY,BboxBottom(self)-BboxTop(_player))
+			_player.velYOff = -(BboxBottom(self)-BboxTop(_player))
+			with _player ActorMoveY(-velYOff)
+		}
+	}
+	
+	/*
 	y += _amtY
 	
 	var _velX = x-xprevious
@@ -88,5 +122,5 @@ function SolidMove(_amtX,_amtY) {
 			_player.velYOff = -(BboxBottom(self)-BboxTop(_player))
 			with _player ActorMoveY(-velYOff)
 		}
-	}
+	}*/
 }

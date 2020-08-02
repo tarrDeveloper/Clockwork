@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},"order":0,},
+    {"id":{"name":"tile_tileSet","path":"tilesets/tile_tileSet/tile_tileSet.yy",},"order":6,},
     {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},"order":0,},
     {"id":{"name":"obj_movingSolid","path":"objects/obj_movingSolid/obj_movingSolid.yy",},"order":3,},
     {"id":{"name":"spr_playerIdle","path":"sprites/spr_playerIdle/spr_playerIdle.yy",},"order":1,},
@@ -9,7 +10,8 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":2,},
     {"id":{"name":"spr_playerJump","path":"sprites/spr_playerJump/spr_playerJump.yy",},"order":3,},
     {"id":{"name":"spr_solidPlatform","path":"sprites/spr_solidPlatform/spr_solidPlatform.yy",},"order":4,},
-    {"id":{"name":"spr_SpriteSheet","path":"sprites/spr_SpriteSheet/spr_SpriteSheet.yy",},"order":5,},
+    {"id":{"name":"spr_tileSet","path":"sprites/spr_tileSet/spr_tileSet.yy",},"order":5,},
+    {"id":{"name":"obj_movingSolid2","path":"objects/obj_movingSolid2/obj_movingSolid2.yy",},"order":4,},
     {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":0,},
   ],
   "Options": [
