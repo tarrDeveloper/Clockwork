@@ -9,11 +9,13 @@ if obj_player.x < x - camWidth/2 {
 	_moveCam = true
 }
 if obj_player.y < y - camHeight/2 {
-	y -= camHeight
+	y -= camHeight+4
+	with obj_player ActorMoveY(-4)
 	_moveCam = true
 }
 if obj_player.y > y + camHeight/2 {
-	y += camHeight
+	y += camHeight+4
+	with obj_player ActorMoveY(4)
 	_moveCam = true
 }
 
