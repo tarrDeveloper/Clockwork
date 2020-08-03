@@ -16,6 +16,7 @@
     {"id":{"name":"spr_playerRun","path":"sprites/spr_playerRun/spr_playerRun.yy",},"order":2,},
     {"id":{"name":"scrEntity","path":"scripts/scrEntity/scrEntity.yy",},"order":1,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":2,},
+    {"id":{"name":"spr_playerClockwork","path":"sprites/spr_playerClockwork/spr_playerClockwork.yy",},"order":13,},
     {"id":{"name":"spr_playerJump","path":"sprites/spr_playerJump/spr_playerJump.yy",},"order":3,},
     {"id":{"name":"spr_solidPlatform","path":"sprites/spr_solidPlatform/spr_solidPlatform.yy",},"order":4,},
     {"id":{"name":"spr_tileSet","path":"sprites/spr_tileSet/spr_tileSet.yy",},"order":5,},

@@ -26,6 +26,11 @@ riding = noone
 
 oldGrounded = false
 
+// this keeps track of what clock teh player is winding up
+clockRewinding = noone
+clockOffX = 0 // how far away from the clock the player is
+clockOffY = 0
+
 // drawing
 xDraw = x
 yDraw = y

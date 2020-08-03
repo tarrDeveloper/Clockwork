@@ -1,5 +1,5 @@
 draw_self()
 
-if inRange {
-	draw_sprite(spr_clockRewindButton,eImage_index,x,y)
+if inRange and obj_player.clockRewinding = noone {
+	draw_sprite(spr_clockRewindButton,buttonImage_index,x,y)
 }

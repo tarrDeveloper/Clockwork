@@ -8,12 +8,12 @@ if obj_player.x < x - camWidth/2 {
 	x -= camWidth
 	_moveCam = true
 }
-if obj_player.y < y - camWidth/2 {
-	y -= camWidth
+if obj_player.y < y - camHeight/2 {
+	y -= camHeight
 	_moveCam = true
 }
-if obj_player.y > y + camWidth/2 {
-	y += camWidth
+if obj_player.y > y + camHeight/2 {
+	y += camHeight
 	_moveCam = true
 }
 
