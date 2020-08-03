@@ -1,6 +1,4 @@
-riding = launch1
-ridingOffX = x - riding.x
-ridingOffY = y - riding.y
+valAcc = .001
+valDec = .055
 
-valInc = .01
-valDec = .25
+clockRiding(plat2)

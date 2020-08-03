@@ -11,6 +11,8 @@
     {"id":{"name":"spr_bkClouds","path":"sprites/spr_bkClouds/spr_bkClouds.yy",},"order":9,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":6,},
     {"id":{"name":"obj_movingPlatform1","path":"objects/obj_movingPlatform1/obj_movingPlatform1.yy",},"order":3,},
+    {"id":{"name":"scrOther","path":"scripts/scrOther/scrOther.yy",},"order":8,},
+    {"id":{"name":"scrVisual","path":"scripts/scrVisual/scrVisual.yy",},"order":7,},
     {"id":{"name":"spr_playerIdle","path":"sprites/spr_playerIdle/spr_playerIdle.yy",},"order":1,},
     {"id":{"name":"spr_clockRewindButton","path":"sprites/spr_clockRewindButton/spr_clockRewindButton.yy",},"order":11,},
     {"id":{"name":"spr_playerRun","path":"sprites/spr_playerRun/spr_playerRun.yy",},"order":2,},

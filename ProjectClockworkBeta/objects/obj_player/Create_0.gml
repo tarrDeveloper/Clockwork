@@ -24,6 +24,7 @@ jumpGrace = 0
 
 riding = noone
 
+grounded    = false
 oldGrounded = false
 
 // this keeps track of what clock teh player is winding up
