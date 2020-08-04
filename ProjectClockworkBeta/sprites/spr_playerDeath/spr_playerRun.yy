@@ -76,7 +76,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_playerRun","path":"sprites/spr_playerRun/spr_playerRun.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_playerRun",
+    "name": "",
     "tags": [],
     "resourceType": "GMSequence",
   },

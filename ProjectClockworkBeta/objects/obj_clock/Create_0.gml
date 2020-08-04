@@ -8,14 +8,11 @@ valVel = 0 // the current velocity for the value
 valAcc = .0025 // the acceleration for the value
 valDec = .0025 // the decceleration for the value
 
+
 // these variables keep track if the clock is riding a platform
 riding = noone // var to track if this clock is riding something
 ridingOffX = -1 // change these when you set a rider to this
 ridingOffY = -1
-/* - put this when setting a rider in the creation code
-ridingOffX = x - riding.x
-ridingOffY = y - riding.y
-*/
 
 // visual vars
 image_speed = 0

@@ -46,7 +46,7 @@ function ActorMoveY(_amt) {
 		if _amt > 0 {
 			y += BboxTop(_col)-BboxBottom(self)
 			velY = _col.velY
-			riding = _col
+			if oldGrounded riding = _col
 			return _col
 		} else {
 			y += BboxBottom(_col)-BboxTop(self)

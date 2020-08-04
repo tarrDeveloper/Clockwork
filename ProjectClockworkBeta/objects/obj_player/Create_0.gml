@@ -32,6 +32,9 @@ clockRewinding = noone
 clockOffX = 0 // how far away from the clock the player is
 clockOffY = 0
 
+// clockentrance
+clockentrance = 0
+
 // drawing
 xDraw = x
 yDraw = y

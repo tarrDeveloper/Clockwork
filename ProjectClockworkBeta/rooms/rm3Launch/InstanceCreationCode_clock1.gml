@@ -1,4 +1,4 @@
-valAcc = .001
+valAcc = .005
 valDec = .092
 
 clockRiding(plat1)

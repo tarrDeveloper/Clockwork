@@ -121,26 +121,32 @@ if clockRewinding = noone { // normal state
 	image_yscale = sign(image_yscale)
 	sprite_index = spr_playerClockwork
 	
-	ActorMoveX(clockRewinding.x+clockOffX - x)
-	ActorMoveY(clockRewinding.y+clockOffY - y)
+	x = clockRewinding.x+clockOffX
+	y = clockRewinding.y+clockOffY
 	
-	if !keyboard_check(ord("J")) { // exiting the clock state
+	if !keyboard_check(ord("J")) and clockentrance <= 0 { // exiting the clock state
 		clockRewinding = noone
 		clockOffX = 0
 		clockOffY = 0
 	} else {
+		if clockentrance > 0 clockentrance --
 		velX = 0
 		velY = 0
 	}
 }
 
-// colliding with a hazard
+// colliding with a hazard and dying
 var _death = place_meeting(x,y,obj_death)
 if _death {
 	if instance_exists(obj_checkpoint) {
-		x = obj_checkpoint.x
-		y = obj_checkpoint.y
-		velX = 0
-		velY = 0
+		var _pd = instance_create_layer(x,y,"Player",obj_playerDeath)
+		_pd.velX = -velX
+		_pd.velY = -velY
+		_pd.image_xscale = sign(image_xscale)
+		instance_destroy()
+		//x = obj_checkpoint.x
+		//y = obj_checkpoint.y
+		//velX = 0
+		//velY = 0
 	}
 }
