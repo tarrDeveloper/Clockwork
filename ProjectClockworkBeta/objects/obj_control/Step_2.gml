@@ -23,5 +23,10 @@ if _px > room_width+1 {
 
 if _rmChange {
 	var _newRm = ds_grid_get(mapGrid,mx,my)
-	room_goto(_newRm)
+	if _newRm = undefined {
+		show_message("FATAL: going to undefined room")
+		game_end()
+	} else {
+		room_goto(_newRm)
+	}
 }

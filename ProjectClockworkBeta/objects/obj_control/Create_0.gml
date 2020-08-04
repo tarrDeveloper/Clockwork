@@ -19,8 +19,12 @@ screenShakeMagnitude = 0
 sx = 0
 sy = 0
 
-mapGrid = ds_grid_create(4,4)
-ds_grid_add(mapGrid,0,0,rm1_start)
+mapGrid = ds_grid_create(5,5)
+ds_grid_set(mapGrid,0,0,rm0Start)
+ds_grid_set(mapGrid,1,0,rm1Warm)
+ds_grid_set(mapGrid,2,0,rm2Platform)
+ds_grid_set(mapGrid,3,0,rm3Launch)
+ds_grid_set(mapGrid,3,1,rm4LaunchLand)
 
 // the coordinates of the player
 mx = sx
