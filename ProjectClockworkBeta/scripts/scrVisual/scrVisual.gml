@@ -1,5 +1,5 @@
 // this function shakes the screen
 function screenShake(_time,_magnitude) {
-	obj_camera.screenShakeTimer = min(max(_time,obj_camera.screenShakeTimer),10)
-	obj_camera.screenShakeMagnitude = min(max(_magnitude,obj_camera.screenShakeMagnitude),2)
+	obj_control.screenShakeTimer     = min(max(_time,obj_control.screenShakeTimer),10)
+	obj_control.screenShakeMagnitude = min(max(_magnitude,obj_control.screenShakeMagnitude),2)
 }

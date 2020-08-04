@@ -1,8 +1,4 @@
 if clockRewinding = noone { // normal state
-	if riding != noone {
-		ActorMoveX(riding.velX)
-		ActorMoveY(riding.velY)
-	}
 	
 	// moving the player first to recieve direct influence from moving solids
 	ActorMoveX(velX+velXOff)
@@ -11,31 +7,22 @@ if clockRewinding = noone { // normal state
 	ActorMoveY(velY+velYOff)
 	velYOff = 0
 
-	// getting current player states
-	grounded = checkOverlap(x,y+.1,obj_solid)
-
+	// applying the riding to the player
+	if riding != noone and instance_exists(riding) {
+		ActorMoveX(riding.velX)
+	}
+	
 	// setting riding to noone if not grounded
 	if !grounded {
-		if riding != noone {
+		if riding != noone and instance_exists(riding) {
 			velX += riding.velX
-			//velY += riding.velY
+			velY += riding.velY
 		}
 		riding = noone
 	}
 	
-	/*// applying the rider property of the player
-	if !grounded {
-		if riding != noone { // stop riding and transfer velocity
-			velX += riding.velX
-			velY += riding.velY
-			riding = noone
-		}
-	} else {
-		if riding != noone {
-			ActorMoveX(riding.velX)
-			ActorMoveY(riding.velY)
-		}
-	}*/
+	// getting current player states
+	grounded = checkOverlap(x,y+.1,obj_solid)
 
 	// getting the input
 	var _hInp = keyboard_check(ord("D")) - keyboard_check(ord("A"))
@@ -142,6 +129,17 @@ if clockRewinding = noone { // normal state
 		clockOffX = 0
 		clockOffY = 0
 	} else {
+		velX = 0
+		velY = 0
+	}
+}
+
+// colliding with a hazard
+var _death = place_meeting(x,y,obj_death)
+if _death {
+	if instance_exists(obj_checkpoint) {
+		x = obj_checkpoint.x
+		y = obj_checkpoint.y
 		velX = 0
 		velY = 0
 	}
