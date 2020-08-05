@@ -1,6 +1,1 @@
-myClock = clock4
-
-point1x = x
-point1y = y
-point2x = 288
-point2y = y
+initPlatform(clock4,x,y,288,y,.05,-.01,0,0)

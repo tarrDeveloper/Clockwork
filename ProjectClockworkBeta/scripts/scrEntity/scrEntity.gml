@@ -65,15 +65,17 @@ function SolidMove(_amtX,_amtY) {
 	var _player = checkOverlap(x,y,obj_player)
 	if _player != noone { // pushing the player
 		if _velX > 0 {
-			_player.velX = max(_player.velX,BboxRight(self)-BboxLeft(_player))
-			_player.velXOff = -(BboxRight(self)-BboxLeft(_player))
-			with _player ActorMoveX(-velXOff)
+			var _snap = BboxRight(self)-BboxLeft(_player)
+			if _player.velX < _snap _player.velX = _snap
+			_player.velXOff = -_snap
+			with _player ActorMoveX(_snap)
 		}
 		if _velX < 0
 		{
-			_player.velX = min(_player.velX,BboxLeft(self)-BboxRight(_player))
-			_player.velXOff = -(BboxLeft(self)-BboxRight(_player))
-			with _player ActorMoveX(-velXOff)
+			var _snap = BboxLeft(self)-BboxRight(_player)
+			if _player.velX > _snap _player.velX = _snap
+			_player.velXOff = -_snap
+			with _player ActorMoveX(_snap)
 		}
 	}
 	
@@ -82,14 +84,16 @@ function SolidMove(_amtX,_amtY) {
 	var _player = checkOverlap(x,y,obj_player)
 	if _player != noone { // pushing the player
 		if _velY < 0 {
-			_player.velY = min(_player.velY,BboxTop(self)-BboxBottom(_player))
-			_player.velYOff = -(BboxTop(self)-BboxBottom(_player))
-			with _player ActorMoveY(-velYOff)
+			var _snap = BboxTop(self)-BboxBottom(_player)
+			if _player.velY > _snap _player.velY = _snap
+			_player.velYOff = -_snap
+			with _player ActorMoveY(_snap)
 		}
 		if _velY > 0 {
-			_player.velY = max(_player.velY,BboxBottom(self)-BboxTop(_player))
-			_player.velYOff = -(BboxBottom(self)-BboxTop(_player))
-			with _player ActorMoveY(-velYOff)
+			var _snap = BboxBottom(self)-BboxTop(_player)
+			if _player.velY < _snap _player.velY = _snap
+			_player.velYOff = -_snap
+			with _player ActorMoveY(_snap)
 		}
 	}
 }

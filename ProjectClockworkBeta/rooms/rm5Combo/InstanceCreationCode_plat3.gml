@@ -1,6 +1,1 @@
-myClock = clock3
-
-point1x = x
-point1y = y
-point2x = x
-point2y = 168
+initPlatform(clock3,x,y,x,168,0,0,.06,-3.1)

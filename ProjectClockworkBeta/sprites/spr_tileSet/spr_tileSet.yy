@@ -67,7 +67,7 @@
   },
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"736b3607-d485-4c76-af7e-3801861dbf42","tags":[],"resourceType":"GMImageLayer",},
-    {"visible":false,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"67f10bbe-8501-4d76-9933-99d452ed2e53","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"67f10bbe-8501-4d76-9933-99d452ed2e53","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "0Sprites",

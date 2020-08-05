@@ -1,13 +1,31 @@
 event_inherited() // parent
 
-// stores points to interpolate
-point1x = x
-point1y = y
-point2x = x
-point2y = y
+// stores my corresponding clock
+myClock = noone
 
-myClock = noone // the clock that controls me
-val = 0 // the value I am at currently
+// stores points for max
+xmin = x
+ymin = y
+xmax = x
+ymax = y
+
+// how much I accelerate in each direction
+accelX  = 0
+accelY  = 0
+deccelX = 0
+deccelY = 0
+
+// vars that stores velocity
+oldVelX = 0
+oldVelY = 0
+velX    = 0
+velY    = 0
+velXMax = 64
+velYMax = 64
+
+// adding a bit of latency to the velocity for player inaccuracy
+latentVelX = 0
+latentTimer = 0
 
 // for visual stuff
 image_speed = 0
