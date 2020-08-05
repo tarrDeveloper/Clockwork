@@ -91,14 +91,20 @@ if clockRewinding = noone {
 	if grounded {
 		if _hInp = 0 {
 			sprite_index = spr_playerIdle
+			if velX = 0 footStepTimer = 1
+			if velX = 0 dustTimer     = 1
 		} else {
 			sprite_index = spr_playerRun
 			if !oldGrounded {
 				image_index = 1
 			}
+			footStepTimer--
+			dustTimer--
 		}
 	} else {
 		sprite_index = spr_playerJump
+		footStepTimer = footStepTimerMax
+		dustTimer = 1
 	}
 
 	if _hInp != 0 image_xscale = abs(image_xscale)*_hInp
@@ -108,20 +114,36 @@ if clockRewinding = noone {
 		image_xscale = sign(image_xscale)*1.4
 		image_yscale = .8
 		// particles
-		part_particles_create(obj_control.partSystem,x+4,y+10,obj_control.partDust,1)
-		part_particles_create(obj_control.partSystem,x-4,y+10,obj_control.partDust,1)
+		part_particles_create(obj_partSystem.partSystem,x+4,y+10,obj_partSystem.partDust,1)
+		part_particles_create(obj_partSystem.partSystem,x-4,y+10,obj_partSystem.partDust,1)
+		// landing sound
+		var _ft = audio_play_sound(footStepSound,0,0)
+		audio_sound_gain(_ft,1,0)
 	}
 
 	// Squishing the player when they jump
 	if _jumped {
 		image_xscale = sign(image_xscale)*.8
 		image_yscale = 1.2
+		audio_play_sound(snd_jump,0,0)
 	}
 
 	image_xscale = lerp(image_xscale,sign(image_xscale),.2)
 	image_yscale = lerp(image_yscale,sign(image_yscale),.2)
+}
 
-	
+// particles
+if dustTimer <= 0 {
+	part_particles_create(obj_partSystem.partSystem,xprevious,yprevious+10,obj_partSystem.partDust,1)
+	dustTimer = irandom_range(1,dustTimerMax)+1
+}
+
+// audio
+if footStepTimer <= 0 {
+	var _ft = audio_play_sound(footStepSound,0,0)
+	audio_sound_gain(_ft,1,0)
+	audio_sound_pitch(_ft,choose(1,1.05))
+	footStepTimer = footStepTimerMax
 }
 
 oldGrounded = grounded

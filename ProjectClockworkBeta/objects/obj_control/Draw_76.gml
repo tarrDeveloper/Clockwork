@@ -14,6 +14,4 @@ for(i=0;i<_platNum;i++) {
 		draw_sprite(spr_majorNotch,image_index,xe,ye)
 	}
 }
-
-part_system_drawit(partSystem)
 surface_reset_target()

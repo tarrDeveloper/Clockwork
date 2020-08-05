@@ -34,4 +34,10 @@ clockOffY = 0
 
 // particles
 dustTimer = 5
-alarm[0] = dustTimer
+dustTimerMax = 5
+
+// footstep
+footStepTimer = 0
+footStepTimerMax = 12
+
+footStepSound = snd_footStep

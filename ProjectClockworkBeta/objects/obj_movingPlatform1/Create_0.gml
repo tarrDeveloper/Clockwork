@@ -1,5 +1,7 @@
 event_inherited() // parent
 
+depth = 125
+
 // stores my corresponding clock
 myClock = noone
 
@@ -29,3 +31,8 @@ latentTimer = 0
 
 // for visual stuff
 image_speed = 0
+
+// audio stuff
+tickTimer = .1
+
+myAudioEmitter = audio_emitter_create()
