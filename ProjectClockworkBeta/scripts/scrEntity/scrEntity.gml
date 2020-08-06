@@ -68,14 +68,28 @@ function SolidMove(_amtX,_amtY) {
 			var _snap = BboxRight(self)-BboxLeft(_player)
 			if _player.velX < _snap _player.velX = _snap
 			_player.velXOff = -_snap
-			with _player ActorMoveX(_snap)
+			with _player {
+				var _death = ActorMoveX(_snap)
+				if _death != noone and instance_exists(_death) {
+					_player.velY = 0
+					_player.velX = 0
+					playerDeath()
+				}
+			}		
 		}
 		if _velX < 0
 		{
 			var _snap = BboxLeft(self)-BboxRight(_player)
 			if _player.velX > _snap _player.velX = _snap
 			_player.velXOff = -_snap
-			with _player ActorMoveX(_snap)
+			with _player {
+				var _death = ActorMoveX(_snap)
+				if _death != noone and instance_exists(_death) {
+					_player.velY = 0
+					_player.velX = 0
+					playerDeath()
+				}
+			}
 		}
 	}
 	
@@ -87,13 +101,40 @@ function SolidMove(_amtX,_amtY) {
 			var _snap = BboxTop(self)-BboxBottom(_player)
 			if _player.velY > _snap _player.velY = _snap
 			_player.velYOff = -_snap
-			with _player ActorMoveY(_snap)
+			with _player {
+				var _death = ActorMoveY(_snap)
+				if _death != noone and instance_exists(_death) {
+					_player.velY = 0
+					_player.velX = 0
+					playerDeath()
+				}
+			}
 		}
 		if _velY > 0 {
 			var _snap = BboxBottom(self)-BboxTop(_player)
 			if _player.velY < _snap _player.velY = _snap
 			_player.velYOff = -_snap
-			with _player ActorMoveY(_snap)
+			with _player {
+				var _death = ActorMoveY(_snap)
+				if _death != noone and instance_exists(_death) {
+					_player.velY = 0
+					_player.velX = 0
+					playerDeath()
+				}
+			}
 		}
+	}
+}
+
+function playerDeath() {
+	if instance_exists(obj_checkpoint) {
+		var _pd = instance_create_layer(x,y,"Player",obj_playerDeath)
+		var _dir = point_direction(0,0,velX,velY)
+		if point_distance(0,0,_pd.velX,_pd.velY) != 0 {
+			_pd.velX = lengthdir_x(-3.5,_dir)
+			_pd.velY = lengthdir_y(-3.5,_dir)
+		}
+		_pd.image_xscale = sign(image_xscale)
+		instance_destroy()
 	}
 }

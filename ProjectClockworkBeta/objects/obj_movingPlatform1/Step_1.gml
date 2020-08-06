@@ -25,28 +25,32 @@ var _xClamped = false
 var _yClamped = false
 
 // clamping my velocity
-if x+velX < xmin {velX = xmin-x;_xClamped = true}
-if x+velX > xmax {velX = xmax-x;_xClamped = true}
-if y+velY < ymin {velY = ymin-y;_yClamped = true}
-if y+velY > ymax {velY = ymax-y;_yClamped = true}
+if x+velX <= xmin {velX = xmin-x;_xClamped = true}
+if x+velX >= xmax {velX = xmax-x;_xClamped = true}
+if y+velY <= ymin {velY = ymin-y;_yClamped = true}
+if y+velY >= ymax {velY = ymax-y;_yClamped = true}
 
 var _dist = point_distance(0,0,oldVelX,oldVelY)
 
 // adding some sweet sweet screenshake
-if velX != 0 and _xClamped {
-	screenShake(_dist*2,_dist/8)
+if (velX != 0 and (_xClamped)) {
+	if !mute screenShake(_dist*2,_dist/8)
 	latentVelX = oldVelX
 	latentTimer = 5
 	
 	// playing an end sound
-	audio_emitter_pitch(myAudioEmitter,.87)
-	var _snd = audio_play_sound_on(myAudioEmitter,snd_gearEnd,false,1)
+	if !mute {
+		audio_emitter_pitch(myAudioEmitter,.87)
+		var _snd = audio_play_sound_on(myAudioEmitter,snd_gearEnd,false,1)
+	}
 } else if velY != 0 and _yClamped {
-	screenShake(_dist*2,_dist/8)
+	if !mute screenShake(_dist*2,_dist/8)
 	
 	// playing an end sound
-	audio_emitter_pitch(myAudioEmitter,.87)
-	var _snd = audio_play_sound_on(myAudioEmitter,snd_gearEnd,false,1)
+	if !mute {
+		audio_emitter_pitch(myAudioEmitter,.87)
+		var _snd = audio_play_sound_on(myAudioEmitter,snd_gearEnd,false,1)
+	}
 }
 
 // make the gears turn
@@ -64,20 +68,21 @@ if latentTimer > 0 {
 var _val = point_distance(xs,ys,x,y)/point_distance(xs,ys,xe,ye)
 myClock.image_index = 16*_val
 
+if !mute {
+	var _tickDown = point_distance(0,0,velX,velY)/8
+	if _tickDown > .2 _tickDown = .2
 
-var _tickDown = point_distance(0,0,velX,velY)/8
-if _tickDown > .2 _tickDown = .2
+	// sound stuff
+	if image_speed != 0 {
+		if _tickDown < .01 _tickDown = .01
+	} else {
+		tickTimer = .1
+	}
 
-// sound stuff
-if image_speed != 0 {
-	if _tickDown < .01 _tickDown = .01
-} else {
-	tickTimer = .1
-}
-
-tickTimer -= _tickDown
-if tickTimer <= 0 {
-	tickTimer = 1
-	audio_emitter_pitch(myAudioEmitter,random_range(.85,.9))
-	audio_play_sound_on(myAudioEmitter,snd_gearTick,0,0)
+	tickTimer -= _tickDown
+	if tickTimer <= 0 {
+		tickTimer = 1
+		audio_emitter_pitch(myAudioEmitter,random_range(.85,.9))
+		audio_play_sound_on(myAudioEmitter,snd_gearTick,0,0)
+	}
 }

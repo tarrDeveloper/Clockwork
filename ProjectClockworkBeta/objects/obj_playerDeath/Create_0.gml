@@ -11,7 +11,7 @@ animAngleTo = 360
 
 animSize  = 0
 
-t = 0
+t = 5
 
 deathColor = make_color_rgb(34,35,35)
 

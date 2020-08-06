@@ -38,9 +38,15 @@ if !active {
 		alarm[0] = 15
 	}
 } else {
-	if !keyboard_check(ord("J")) and !clockLock{
-		active = false
+	if instance_exists(_player) {
 		_player.y = y + _player.clockOffY
-		_player.clockRewinding = noone
+		if (!keyboard_check(ord("J")) and !clockLock) {
+			active = false
+			_player.y = y + _player.clockOffY
+			_player.clockRewinding = noone
+		}
+	} else {
+		active = false
+		clockLock = false
 	}
 }

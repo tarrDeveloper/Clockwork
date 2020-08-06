@@ -34,5 +34,6 @@ image_speed = 0
 
 // audio stuff
 tickTimer = .1
+mute = false
 
 myAudioEmitter = audio_emitter_create()

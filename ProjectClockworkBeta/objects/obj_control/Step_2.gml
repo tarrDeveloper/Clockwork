@@ -4,19 +4,19 @@ if instance_exists(obj_player) {
 	var _py = obj_player.y
 	var _rmChange = false
 
-	if _px > room_width-8+1 {
+	if _px > room_width-8+2 {
 		mx += 1
 		obj_player.x -= room_width-16
 		_rmChange = true
-	} else if _px < -1+8 {
+	} else if _px < -2+8 {
 		mx -= 1
 		obj_player.x += room_width-16
 		_rmChange = true
-	} else if _py > room_height+2-1 {
+	} else if _py > room_height+2-2 {
 		my -= 1
 		obj_player.y -= room_height-4
 		_rmChange = true
-	} else if _py < 1 {
+	} else if _py < 0 {
 		my += 1
 		obj_player.y += room_height-4
 		_rmChange = true

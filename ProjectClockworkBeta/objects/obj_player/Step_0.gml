@@ -76,13 +76,15 @@ if !(grounded) or !(oldGrounded) { // jump grace
 
 var _jumped = false
 if jumpTimer > 0 and jumpGrace > 0 {
-	jumpTimer = 0
-	velY = -jumpMag
-	_jumped = true
+	if -jumpMag < velY {
+		jumpTimer = 0
+		velY = -jumpMag
+		_jumped = true
 	
-	if riding != noone and instance_exists(riding) { // applying accel when jumping
-		velX += riding.latentVelX
-		velY += riding.velY
+		if riding != noone and instance_exists(riding) { // applying accel when jumping
+			velX += riding.latentVelX
+			velY += riding.velY
+		}
 	}
 }
 
@@ -151,16 +153,5 @@ oldGrounded = grounded
 // colliding with a hazard and dying
 var _death = place_meeting(x,y,obj_death)
 if _death {
-	if instance_exists(obj_checkpoint) {
-		var _pd = instance_create_layer(x,y,"Player",obj_playerDeath)
-		var _dir = point_direction(0,0,velX,velY)
-		_pd.velX = lengthdir_x(-3.5,_dir)
-		_pd.velY = lengthdir_y(-3.5,_dir)
-		_pd.image_xscale = sign(image_xscale)
-		instance_destroy()
-			//x = obj_checkpoint.x
-			//y = obj_checkpoint.y
-			//velX = 0
-			//velY = 0
-	}
+	playerDeath()
 }

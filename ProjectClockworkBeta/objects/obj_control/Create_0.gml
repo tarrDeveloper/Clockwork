@@ -22,6 +22,8 @@ ds_grid_set(mapGrid,3,0,rm3Launch)
 ds_grid_set(mapGrid,3,1,rm4LaunchLand)
 ds_grid_set(mapGrid,2,1,rm5Combo)
 ds_grid_set(mapGrid,1,1,rm6Velocity)
+ds_grid_set(mapGrid,0,1,rm7Elevator)
+ds_grid_set(mapGrid,0,2,rm8Spikes)
 
 enum mpDir {
 	right,
@@ -38,6 +40,8 @@ ds_map_set(mapList,rm3Launch,mpDir.up)
 ds_map_set(mapList,rm4LaunchLand,mpDir.left)
 ds_map_set(mapList,rm5Combo,mpDir.left)
 ds_map_set(mapList,rm6Velocity,mpDir.left)
+ds_map_set(mapList,rm7Elevator,mpDir.up)
+ds_map_set(mapList,rm8Spikes,mpDir.right)
 
 // the coordinates of the player
 mx = sx

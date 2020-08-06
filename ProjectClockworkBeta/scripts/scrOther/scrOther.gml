@@ -41,3 +41,11 @@ function initPlatform(_clock,_xmin,_ymin,_xmax,_ymax,_xAcc,_xDec,_yAcc,_yDec) {
 		ye = ymin
 	}
 }
+
+function initSpike(_clock,_min,_max,_inc,_dec) {
+	myClock = _clock
+	minVal = _min
+	maxVal = _max
+	inc    = _inc
+	dec    = _dec
+}
