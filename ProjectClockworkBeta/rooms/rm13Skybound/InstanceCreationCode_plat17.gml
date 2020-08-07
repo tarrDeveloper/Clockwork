@@ -1,0 +1,1 @@
+initPlatform(clock17,x,y,x,136,0,0,.1,-1.6)

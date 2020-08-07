@@ -10,3 +10,4 @@ velX = 0
 velY = 0
 
 latentVelX = 0
+latentVelY = 0

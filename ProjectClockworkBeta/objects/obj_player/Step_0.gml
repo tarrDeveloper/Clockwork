@@ -6,10 +6,16 @@ ActorMoveY(velY+velYOff)
 velYOff = 0
 
 // getting current player states
-grounded = checkOverlap(x,y+.001,obj_solid)
+grounded = checkOverlap(x,y+.01,obj_solid)
 
 // setting riding to noone if not grounded
 if !grounded {
+	if riding != noone and instance_exists(riding) {
+		velX += riding.latentVelX
+		if riding.latentVelY < 0 {
+			velY += riding.latentVelY
+		}
+	}
 	riding = noone
 }
 	
@@ -44,8 +50,9 @@ if abs(velX) > accelXCap {
 	if !grounded { // deccelerating based on iff the player is grounded or not
 		velX -= deccelX*sign(velX)/4
 	} else {
-		velX -= deccelX*sign(velX)
+		velX -= deccelX*sign(velX)*2
 	}
+	if abs(velX) < accelXCap velX = accelXCap*sign(velX)
 	if sign(velX) = -sign(_oldVelX) velX = 0 // making it so the player can't deccelerate in the neg dir
 	_deccelerated = true
 }
@@ -80,11 +87,6 @@ if jumpTimer > 0 and jumpGrace > 0 {
 		jumpTimer = 0
 		velY = -jumpMag
 		_jumped = true
-	
-		if riding != noone and instance_exists(riding) { // applying accel when jumping
-			velX += riding.latentVelX
-			velY += riding.velY
-		}
 	}
 }
 
@@ -151,7 +153,7 @@ if footStepTimer <= 0 {
 oldGrounded = grounded
 
 // colliding with a hazard and dying
-var _death = place_meeting(x,y,obj_death)
-if _death {
+var _death = instance_place(x,y,obj_death)
+if _death != noone and _death.deadly {
 	playerDeath()
 }

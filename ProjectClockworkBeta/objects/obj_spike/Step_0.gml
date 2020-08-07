@@ -7,10 +7,14 @@ if myClock != noone {
 	}
 
 	// changeing the spikestateto
-	if val < 1 {
+	if val = 0 {
+		if spikeStateTo = 1 and mute = false {audio_play_sound(snd_spike,0,0)}
 		spikeStateTo = 0
+		deadly = true
 	} else {
+		if spikeStateTo = 0 and mute = false {audio_play_sound(snd_spike,0,0)}
 		spikeStateTo = 1
+		deadly = false
 	}
 
 	// changin the val
@@ -18,12 +22,12 @@ if myClock != noone {
 	if myClock.active {
 		val+=inc
 	} else {
-		val-=dec
+		val+=dec
 	}
 
-	if val >= 1 {
-		val = 1
-		if oldVal != 1 {
+	if val >= 10 {
+		val = 10
+		if oldVal != 10 {
 			screenShake(3,1)
 		}
 	} else if val <= 0 {
@@ -34,6 +38,23 @@ if myClock != noone {
 	}
 
 	// changing my position based on spike state
-	x = xLock-8*spikeState*xDir
-	y = yLock-8*spikeState*yDir
+	x = xLock-9*abs(spikeState-inverse)*xDir
+	y = yLock-9*abs(spikeState-inverse)*yDir
+
+	// setting the clock positino to my position
+	if mute = false myClock.image_index = 16*(val/10)
+	
+	// ticking
+	if val != oldVal {
+		tickTimer--
+	} else {
+		tickTimer = 1
+	}
+	
+	if tickTimer <= 0 {
+		audio_play_sound(snd_clockTick,2,0)
+		tickTimer = 10
+	}
+} else {
+	deadly = true
 }

@@ -27,6 +27,7 @@ velYMax = 64
 
 // adding a bit of latency to the velocity for player inaccuracy
 latentVelX = 0
+latentVelY = 0
 latentTimer = 0
 
 // for visual stuff

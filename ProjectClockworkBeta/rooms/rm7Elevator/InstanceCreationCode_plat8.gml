@@ -1,1 +1,1 @@
-initPlatform(clock8,x,y,x,y+64,0,0,.1,-1)
+initPlatform(clock8,x,y,x,y+64,0,0,.1,-1.02)

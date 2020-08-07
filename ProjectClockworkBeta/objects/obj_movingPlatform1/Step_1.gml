@@ -36,6 +36,7 @@ var _dist = point_distance(0,0,oldVelX,oldVelY)
 if (velX != 0 and (_xClamped)) {
 	if !mute screenShake(_dist*2,_dist/8)
 	latentVelX = oldVelX
+	latentVelY = oldVelY
 	latentTimer = 5
 	
 	// playing an end sound
@@ -62,6 +63,7 @@ if latentTimer > 0 {
 	latentTimer--
 } else {
 	latentVelX = velX
+	latentVelY = velY
 }
 
 // setting the clock positino to my position

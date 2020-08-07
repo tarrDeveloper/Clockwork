@@ -14,7 +14,7 @@ screenShakeMagnitude = 0
 sx = 0
 sy = 0
 
-mapGrid = ds_grid_create(5,5)
+mapGrid = ds_grid_create(7,5)
 ds_grid_set(mapGrid,0,0,rm0Start)
 ds_grid_set(mapGrid,1,0,rm1Warm)
 ds_grid_set(mapGrid,2,0,rm2Platform)
@@ -24,6 +24,14 @@ ds_grid_set(mapGrid,2,1,rm5Combo)
 ds_grid_set(mapGrid,1,1,rm6Velocity)
 ds_grid_set(mapGrid,0,1,rm7Elevator)
 ds_grid_set(mapGrid,0,2,rm8Spikes)
+ds_grid_set(mapGrid,1,2,rm9Bounce)
+ds_grid_set(mapGrid,2,2,rm10ControlSpikes)
+ds_grid_set(mapGrid,3,2,rm11SpikeyRide)
+ds_grid_set(mapGrid,4,2,rm12Gauntlet)
+ds_grid_set(mapGrid,5,2,rm13Skybound)
+ds_grid_set(mapGrid,5,3,rm14SpikeShot)
+ds_grid_set(mapGrid,6,3,rm15Zigzag)
+ds_grid_set(mapGrid,6,4,rm16Dejavu)
 
 enum mpDir {
 	right,
@@ -42,6 +50,14 @@ ds_map_set(mapList,rm5Combo,mpDir.left)
 ds_map_set(mapList,rm6Velocity,mpDir.left)
 ds_map_set(mapList,rm7Elevator,mpDir.up)
 ds_map_set(mapList,rm8Spikes,mpDir.right)
+ds_map_set(mapList,rm9Bounce,mpDir.right)
+ds_map_set(mapList,rm10ControlSpikes,mpDir.right)
+ds_map_set(mapList,rm11SpikeyRide,mpDir.right)
+ds_map_set(mapList,rm12Gauntlet,mpDir.right)
+ds_map_set(mapList,rm13Skybound,mpDir.up)
+ds_map_set(mapList,rm14SpikeShot,mpDir.right)
+ds_map_set(mapList,rm15Zigzag,mpDir.up)
+ds_map_set(mapList,rm16Dejavu,mpDir.up)
 
 // the coordinates of the player
 mx = sx
@@ -59,3 +75,5 @@ instance_create_depth(0,0,150,obj_partSystem)
 // dev
 devRoomChange = false
 //show_debug_overlay(true)
+
+ds_set_precision(.001)

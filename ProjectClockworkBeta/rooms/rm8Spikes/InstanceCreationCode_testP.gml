@@ -1,1 +1,0 @@
-initPlatform(testClock,x,y,x,128,0,0,.1,-.1)

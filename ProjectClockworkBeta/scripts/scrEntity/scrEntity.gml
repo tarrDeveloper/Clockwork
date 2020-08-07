@@ -1,15 +1,15 @@
 // these functions get the bounding box parts of an entity
-function BboxRight(_ent)  {return _ent.x+_ent.bboxRightLen}
-function BboxLeft(_ent)   {return _ent.x-_ent.bboxLeftLen}
-function BboxTop(_ent)    {return _ent.y-_ent.bboxTopLen}
-function BboxBottom(_ent) {return _ent.y+_ent.bboxBottomLen}
+function BboxRight(_ent)  {return round((_ent.x+_ent.bboxRightLen)*100)/100}
+function BboxLeft(_ent)   {return round((_ent.x-_ent.bboxLeftLen)*100)/100}
+function BboxTop(_ent)    {return round((_ent.y-_ent.bboxTopLen)*100)/100}
+function BboxBottom(_ent) {return round((_ent.y+_ent.bboxBottomLen)*100)/100}
 
 // these function check if an entity is overlapping a certain object
 function checkOverlap(_x,_y,_objectType) {
-	var _myBboxRight  = _x+bboxRightLen
-	var _myBboxLeft   = _x-bboxLeftLen
-	var _myBboxTop    = _y-bboxTopLen
-	var _myBboxBottom = _y+bboxBottomLen
+	var _myBboxRight  = round((_x+bboxRightLen)*100)/100
+	var _myBboxLeft   = round((_x-bboxLeftLen)*100)/100
+	var _myBboxTop    = round((_y-bboxTopLen)*100)/100
+	var _myBboxBottom = round((_y+bboxBottomLen)*100)/100
 	
 	var _objectNumber = instance_number(_objectType)
 	for(i=0;i<_objectNumber;i++) {
@@ -64,18 +64,17 @@ function SolidMove(_amtX,_amtY) {
 	var _velX = x-xprevious
 	var _player = checkOverlap(x,y,obj_player)
 	if _player != noone { // pushing the player
-		if _velX > 0 {
-			var _snap = BboxRight(self)-BboxLeft(_player)
+		if _amtX > 0 {
+			var _snap = BboxRight(id)-BboxLeft(_player)
 			if _player.velX < _snap _player.velX = _snap
 			_player.velXOff = -_snap
 			with _player {
-				var _death = ActorMoveX(_snap)
+				x += _snap
+				var _death = checkOverlap(x,y,obj_solid)
 				if _death != noone and instance_exists(_death) {
-					_player.velY = 0
-					_player.velX = 0
 					playerDeath()
 				}
-			}		
+			}
 		}
 		if _velX < 0
 		{
@@ -83,10 +82,9 @@ function SolidMove(_amtX,_amtY) {
 			if _player.velX > _snap _player.velX = _snap
 			_player.velXOff = -_snap
 			with _player {
-				var _death = ActorMoveX(_snap)
+				x += _snap
+				var _death = checkOverlap(x,y,obj_solid)
 				if _death != noone and instance_exists(_death) {
-					_player.velY = 0
-					_player.velX = 0
 					playerDeath()
 				}
 			}
@@ -102,10 +100,9 @@ function SolidMove(_amtX,_amtY) {
 			if _player.velY > _snap _player.velY = _snap
 			_player.velYOff = -_snap
 			with _player {
-				var _death = ActorMoveY(_snap)
+				y += _snap
+				var _death = checkOverlap(x,y,obj_solid)
 				if _death != noone and instance_exists(_death) {
-					_player.velY = 0
-					_player.velX = 0
 					playerDeath()
 				}
 			}
@@ -115,10 +112,9 @@ function SolidMove(_amtX,_amtY) {
 			if _player.velY < _snap _player.velY = _snap
 			_player.velYOff = -_snap
 			with _player {
-				var _death = ActorMoveY(_snap)
+				y += _snap
+				var _death = checkOverlap(x,y,obj_solid)
 				if _death != noone and instance_exists(_death) {
-					_player.velY = 0
-					_player.velX = 0
 					playerDeath()
 				}
 			}

@@ -1,0 +1,1 @@
+initSpike(clock11,.5,-.1)
