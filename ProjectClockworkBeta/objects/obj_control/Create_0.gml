@@ -14,7 +14,7 @@ screenShakeMagnitude = 0
 sx = 0
 sy = 0
 
-mapGrid = ds_grid_create(7,5)
+mapGrid = ds_grid_create(10,6)
 ds_grid_set(mapGrid,0,0,rm0Start)
 ds_grid_set(mapGrid,1,0,rm1Warm)
 ds_grid_set(mapGrid,2,0,rm2Platform)
@@ -32,12 +32,17 @@ ds_grid_set(mapGrid,5,2,rm13Skybound)
 ds_grid_set(mapGrid,5,3,rm14SpikeShot)
 ds_grid_set(mapGrid,6,3,rm15Zigzag)
 ds_grid_set(mapGrid,6,4,rm16Dejavu)
+ds_grid_set(mapGrid,6,5,rm17Push)
+ds_grid_set(mapGrid,7,5,rm18Shifty)
+ds_grid_set(mapGrid,8,5,rm19Slingshot)
+ds_grid_set(mapGrid,9,5,rm20Rewind)
 
 enum mpDir {
 	right,
 	left,
 	up,
 	down,
+	none,
 }
 
 mapList = ds_map_create()
@@ -58,6 +63,10 @@ ds_map_set(mapList,rm13Skybound,mpDir.up)
 ds_map_set(mapList,rm14SpikeShot,mpDir.right)
 ds_map_set(mapList,rm15Zigzag,mpDir.up)
 ds_map_set(mapList,rm16Dejavu,mpDir.up)
+ds_map_set(mapList,rm17Push,mpDir.right)
+ds_map_set(mapList,rm18Shifty,mpDir.right)
+ds_map_set(mapList,rm19Slingshot,mpDir.right)
+ds_map_set(mapList,rm20Rewind,mpDir.none)
 
 // the coordinates of the player
 mx = sx
