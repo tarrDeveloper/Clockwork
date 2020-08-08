@@ -1,1 +1,1 @@
-//audio_emitter_free(myAudioEmitter)
+ds_list_add(obj_control.emitters_to_free,myAudioEmitter)

@@ -1,7 +1,9 @@
 if animStart {
 	// lerping the animation values
-	animSize = dsin(t*4)*3
-	animAngle = lerp(animAngle,animAngleTo,.05)
+	if !global.gamePaused {
+		animSize = dsin(t*4)*3
+		animAngle = lerp(animAngle,animAngleTo,.05)
+	}
 
 	// drawing the death effect
 	if surface_exists(animSurface) {

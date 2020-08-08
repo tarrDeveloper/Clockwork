@@ -78,11 +78,25 @@ gearSurface = surface_create(room_width,room_height)
 // creating the part system
 instance_create_depth(0,0,150,obj_partSystem)
 
-// handling sounds
-
+// dealing with audio
+emitters_to_free = ds_list_create()
 
 // dev
 devRoomChange = false
+roomChanging = false
+roomChangeTime = 0
 //show_debug_overlay(true)
 
 ds_set_precision(.001)
+
+speedRunMiliseconds = 0
+speedRunSeconds     = 0
+speedRunMinutes     = 0
+
+speedRunEnable = global.speedRun
+timerTick      = false
+
+runStarted = false
+
+
+global.gamePaused = false
